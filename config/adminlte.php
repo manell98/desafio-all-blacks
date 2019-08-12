@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/admin',
 
     'logout_url' => 'logout',
 
@@ -108,11 +108,14 @@ return [
 
     'menu' => [
         [
-            'text'        => 'Torcedores',
-            'url'         => 'admin/torcedores',
-            'icon'        => 'fas fa-fw fa-users',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'          => 'Página Inicial',
+            'route'         => 'admin',
+            'icon'          => 'fas fa-home',
+        ],
+        [
+            'text'          => 'Torcedores',
+            'route'         => 'torcedores.index',
+            'icon'          => 'fas fa-fw fa-users',
         ],
         ['header' => 'account_settings'],
         [
