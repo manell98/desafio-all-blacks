@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group form-group col-md-4">
                             <label>Telefone:</label>
-                            <input type="text" name="telefone" class="form-control" placeholder="Telefone:" value="{{$torcedor->telefone}}" required>
+                            <input type="text" name="telefone" class="form-control" placeholder="Telefone:" value="{{$torcedor->telefone}}" onkeypress="mask(this, mphone);" required>
                         </div>
                     </div>
                 </div>
@@ -63,23 +63,23 @@
                         <div class="col-md-12">
                             <div class="form-group form-group col-md-4">
                                 <label>Cep:</label>
-                                <input type="text" name="cep" class="form-control" placeholder="Digite o cep:" value="{{$torcedor->cep}}" required>
+                                <input type="text" name="cep" class="form-control" placeholder="Digite o cep:" value="{{$torcedor->cep}}" id="cep" onkeypress="mascarar(this, '#####-###')" maxlength="9" required>
                             </div>
                             <div class="form-group form-group col-md-8">
                                 <label>Endereco:</label>
-                                <input type="text" name="endereco" class="form-control" placeholder="Digite o endereco:" value="{{$torcedor->endereco}}" required>
+                                <input type="text" name="endereco" class="form-control" placeholder="Digite o endereco:" value="{{$torcedor->endereco}}" id="rua" required>
                             </div>
                             <div class="form-group form-group col-md-6">
                                 <label>Bairro:</label>
-                                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro:" value="{{$torcedor->bairro}}" required>
+                                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro:" value="{{$torcedor->bairro}}" id="bairro" required>
                             </div>
                             <div class="form-group form-group col-md-4">
                                 <label>Cidade:</label>
-                                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade:" value="{{$torcedor->cidade}}" required>
+                                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade:" value="{{$torcedor->cidade}}" id="cidade" required>
                             </div>
                             <div class="form-group form-group col-md-2">
                                 <label>Estado:</label>
-                                <input type="text" name="uf" class="form-control" placeholder="Digite o estado:" value="{{$torcedor->uf}}" required>
+                                <input type="text" name="uf" class="form-control" placeholder="Digite o estado:" value="{{$torcedor->uf}}" id="uf" required>
                             </div>
                         </div>
                     </div>

@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group form-group col-md-4">
                             <label>Telefone:</label>
-                            <input type="text" name="telefone" class="form-control" placeholder="Telefone:" required>
+                            <input type="text" name="telefone" class="form-control" placeholder="Telefone:" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" required>
                         </div>
                     </div>
                 </div>
@@ -63,23 +63,23 @@
                         <div class="col-md-12">
                             <div class="form-group form-group col-md-4">
                                 <label>Cep:</label>
-                                <input type="text" name="cep" class="form-control" placeholder="Digite o cep:" required>
+                                <input type="text" name="cep" class="form-control" placeholder="Digite o cep:" id="cep" onkeypress="mascarar(this, '#####-###')" maxlength="9" required>
                             </div>
                             <div class="form-group form-group col-md-8">
                                 <label>Endereco:</label>
-                                <input type="text" name="endereco" class="form-control" placeholder="Digite o endereco:" required>
+                                <input type="text" name="endereco" class="form-control" placeholder="Digite o endereco:" id="rua" required>
                             </div>
                             <div class="form-group form-group col-md-6">
                                 <label>Bairro:</label>
-                                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro:" required>
+                                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro:" id="bairro" required>
                             </div>
                             <div class="form-group form-group col-md-4">
                                 <label>Cidade:</label>
-                                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade:" required>
+                                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade:" id="cidade" required>
                             </div>
                             <div class="form-group form-group col-md-2">
                                 <label>Estado:</label>
-                                <input type="text" name="uf" class="form-control" placeholder="Digite o estado:" required>
+                                <input type="text" name="uf" class="form-control" placeholder="Digite o estado:" id="uf" required>
                             </div>
                         </div>
                     </div>
