@@ -136,16 +136,38 @@ class TorcedorController extends Controller
 
     public function clientesXml() 
     {
-        $xml = simplexml_load_file('../public/xml/clientes.xml');
+        $xml = simplexml_load_file('../storage/app/public/xml/clientes.xml');
 
         return view('admin.torcedores.clientes-xml', compact('xml'));
-
     }
 
     public function cadastraClienteXml($email)
     {
-        $xml = simplexml_load_file('../public/xml/clientes.xml');
+        $xml = simplexml_load_file('../storage/app/public/xml/clientes.xml');
 
         return view('admin.torcedores.cadastra-cliente-xml', compact('xml', 'email'));
+    }
+
+    public function formXml() 
+    {
+        return view('admin.torcedores.upload-xml');
+    }
+
+    public function uploadXml(Request $request) 
+    {
+        if( $request->hasFile('xml') ) {
+ 
+            $file = $request->file('xml');
+
+            $upload = $file->storeAs('xml', 'clientes.xml');
+            
+            if( $upload ) 
+                return redirect()->route('torcedores.clientesXml')->with(['success' => 'Arquivo XML salvo com sucesso!']);
+            else
+                return redirect()->route('torcedores.clientesXml')
+                            ->withErrors(['errors' => 'Erro no Upload'])
+                            ->withInput();
+        }
+
     }
 }

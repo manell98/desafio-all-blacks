@@ -5,7 +5,7 @@
 <h3 class="text-center">Lista XML de Torcedores - {{ $xml->torcedor->count() }} registros</h3>
 
 <div class="class-btn-insert"> </br>
-    <a class="btn icon-btn btn-primary" href="{{route('torcedores.clientesXml')}}">
+    <a class="btn icon-btn btn-primary" href="{{route('torcedores.formXml')}}">
         <i class="glyphicon btn-glyphicon glyphicon-plus text-primary"></i> NOVO
     </a>
 </div>

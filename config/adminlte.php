@@ -114,82 +114,25 @@ return [
         ],
         ['header' => 'Torcedores'],
         [
+            'text'          => 'Novo Torcedor',
+            'icon'          => 'fa fa-fw fa-user',
+            'route'         => 'torcedores.create',
+        ],
+        [
             'text'          => 'Torcedores',
             'icon'          => 'fa fa-fw fa-users',
-            'submenu' => [
-                [
-                    'text'   => 'Lista de torcedores',
-                    'route'  => 'torcedores.index',
-                    'icon'   => 'fa fa-fw fa-users',
-                ],
-                [
-                    'text'   => 'Lista XML de torcedores',
-                    'route'  => 'torcedores.clientesXml',
-                    'icon'   => 'fa fa-file-code',
-                ],
-            ],
+            'route'         => 'torcedores.index',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'XML'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'   => 'Lista XML',
+            'route'  => 'torcedores.clientesXml',
+            'icon'   => 'fa fa-file-code',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
+            'text'   => 'Upload XML',
+            'route'  => 'torcedores.formXml',
+            'icon'   => 'glyphicon glyphicon-open-file',
         ],
     ],
 
