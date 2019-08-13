@@ -1,6 +1,14 @@
 @extends('adminlte::page')
 
 @section('content')
+
+<h3 class="text-center">Lista XML de Torcedores - {{ $xml->torcedor->count() }} registros</h3>
+
+<div class="class-btn-insert"> </br>
+    <a class="btn icon-btn btn-primary" href="{{route('torcedores.clientesXml')}}">
+        <i class="glyphicon btn-glyphicon glyphicon-plus text-primary"></i> NOVO
+    </a>
+</div>
     
 <div class="span7">   
     <div class="widget stacked widget-table action-table">
@@ -24,6 +32,7 @@
                         <th style="text-align:center; color:#fff;">TELEFONE</th>
                         <th style="text-align:center; color:#fff;">E-MAIL</th>
                         <th style="text-align:center; color:#fff;">ATIVO</th>
+                        <th width="15" style="text-align:center; color:#fff;">AÇÃO</th>
                         </thead>
                     </tr>
 
@@ -39,13 +48,16 @@
                             <th style="text-align:center">{{$torcedor->attributes()['telefone']}}</th>
                             <th style="text-align:center">{{$torcedor->attributes()['email']}}</th>
                             @if ($torcedor->attributes()['ativo'] == 1)
-                            <th style="text-align:center">SIM</th>
+                            <th style="text-align:center"><i class="fas fa-check"></i></th>
                             @else
-                            <th style="text-align:center">NÃO</th>
+                            <th style="text-align:center"></th>
                             @endif
+                            <td style="text-align:center;">
+                                <a href="{{route('torcedores.cadastraClienteXml', $torcedor->attributes()['email'])}}"><span class="btn btn-primary" title="Cadastrar"><i class="fas fa-plus"></i></span></a>
+                            </td>
                         </tr>    
                     @empty
-                        <p>NENHUM TORCEDOR CADASTRADO</p>
+                        <p>Nenhum Torcedor Cadastrado</p>
                     @endforelse
                 </table>
             </div>

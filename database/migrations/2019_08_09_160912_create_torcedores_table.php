@@ -16,13 +16,13 @@ class CreateTorcedoresTable extends Migration
         Schema::create('torcedores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome', 256);
-            $table->string('documento', 14);
-            $table->string('cep', 9);
+            $table->string('documento', 45);
+            $table->string('cep', 45);
             $table->string('endereco', 256);
             $table->string('bairro', 256);
             $table->string('cidade', 45);
             $table->string('uf', 2);
-            $table->string('telefone', 14);
+            $table->string('telefone', 45);
             $table->string('email')->unique();
             $table->enum('ativo',['1', ''])->default('1');
         });

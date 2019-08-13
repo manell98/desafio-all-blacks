@@ -2,44 +2,67 @@
 
 @section('content')
 
-<h3>Index</h3>
+<h3 class="text-center">Lista de Torcedores</h3>
 
 <div class="class-btn-insert"> </br>
-        <a class="btn icon-btn btn-primary" href="{{route('torcedores.teste')}}">
-            <i class="glyphicon btn-glyphicon glyphicon-plus text-primary"></i> NOVO
-        </a>
-    </div>
-  
- <div class="span7">   
-        <div class="widget stacked widget-table action-table">
-
-            <div class="widget-content">
-<div class="table-responsive">
-    <table class="table table-striped table-bordered">
-             @if( Session::has('success') )
-    <div class="alert alert-success hide-msg" style="float: left; width: 100%; margin: 10px 0px;">
-        {{Session::get('success')}}
-    </div>
-    @endif
-        <tr>
-            <thead style="background-color:#3c8dbc">
-            <th style="text-align:center; color:#fff;">NOME</th>
-            <th style="text-align:center; color:#fff;">E-MAIL</th>
-            </thead>
-        </tr>
-
-       @forelse($users as $user)
-            <tr>
-                <th style="text-align:center">{{$user->name}}</th>
-                <th style="text-align:center">{{$user->email}}</th>
-        @empty
-            <p>NENHUM USUÁRIO CADASTRADO</p>
-        @endforelse
-    </table>
+    <a class="btn icon-btn btn-primary" href="{{route('torcedores.create')}}">
+        <i class="glyphicon btn-glyphicon glyphicon-plus text-primary" style="color: #fff"></i> NOVO
+    </a>
 </div>
-            </div> <!-- /widget-content -->
+  
+<div class="span7">   
+    <div class="widget stacked widget-table action-table">
+        <div class="widget-content">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                        @if( Session::has('success') )
+                <div class="alert alert-success hide-msg" style="float: left; width: 100%; margin: 10px 0px;">
+                    {{Session::get('success')}}
+                </div>
+                @endif
+                    <tr>
+                        <thead style="background-color:#3c8dbc">
+                            <th style="text-align:center; color:#fff;">NOME</th>
+                            <th style="text-align:center; color:#fff;">DOCUMENTO</th>
+                            <th style="text-align:center; color:#fff;">CEP</th>
+                            <th style="text-align:center; color:#fff;">ENDERECO</th>
+                            <th style="text-align:center; color:#fff;">BAIRRO</th>
+                            <th style="text-align:center; color:#fff;">CIDADE</th>
+                            <th style="text-align:center; color:#fff;">UF</th>
+                            <th style="text-align:center; color:#fff;">TELEFONE</th>
+                            <th style="text-align:center; color:#fff;">E-MAIL</th>
+                            <th style="text-align:center; color:#fff;">ATIVO</th>
+                            <th width="15" style="text-align:center; color:#fff;">AÇÃO</th>
+                        </thead>
+                    </tr>
 
-        </div> <!-- /widget -->
-    </div> <!-- /FIM -->   
+                    @forelse($torcedores as $torcedor)
+                        <tr>
+                            <th style="text-align:center">{{$torcedor->nome}}</th>
+                            <th style="text-align:center">{{$torcedor->documento}}</th>
+                            <th style="text-align:center">{{$torcedor->cep}}</th>
+                            <th style="text-align:center">{{$torcedor->endereco}}</th>
+                            <th style="text-align:center">{{$torcedor->bairro}}</th>
+                            <th style="text-align:center">{{$torcedor->cidade}}</th>
+                            <th style="text-align:center">{{$torcedor->uf}}</th>
+                            <th style="text-align:center">{{$torcedor->telefone}}</th>
+                            <th style="text-align:center">{{$torcedor->email}}</th>
+                            @if ($torcedor->ativo == 1)
+                            <th style="text-align:center"><i class="fas fa-check"></i></th>
+                            @else
+                            <th style="text-align:center"></th>
+                            @endif
+                            <td style="text-align:center;">
+                                <a href="{{route('torcedores.edit', $torcedor->id)}}"><span class="btn btn-primary" title="Editar"><i class="glyphicon glyphicon-edit"></i></span></a>
+                            </td>
+                        </tr>    
+                    @empty
+                        <p>Nenhum Torcedor Cadastrado</p>
+                    @endforelse
+                </table>
+            </div>
+        </div>
+    </div>
+</div>  
 
 @stop

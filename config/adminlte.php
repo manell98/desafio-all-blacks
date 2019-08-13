@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' => 'fixed',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,12 +110,24 @@ return [
         [
             'text'          => 'Página Inicial',
             'route'         => 'admin',
-            'icon'          => 'fas fa-home',
+            'icon'          => 'fa fa-home',
         ],
+        ['header' => 'Torcedores'],
         [
             'text'          => 'Torcedores',
-            'route'         => 'torcedores.index',
-            'icon'          => 'fas fa-fw fa-users',
+            'icon'          => 'fa fa-fw fa-users',
+            'submenu' => [
+                [
+                    'text'   => 'Lista de torcedores',
+                    'route'  => 'torcedores.index',
+                    'icon'   => 'fa fa-fw fa-users',
+                ],
+                [
+                    'text'   => 'Lista XML de torcedores',
+                    'route'  => 'torcedores.clientesXml',
+                    'icon'   => 'fa fa-file-code',
+                ],
+            ],
         ],
         ['header' => 'account_settings'],
         [

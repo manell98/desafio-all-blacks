@@ -10,6 +10,6 @@ class Torcedores extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nome', 'documento', 'cep', 'endereco', 'bairro', 'cidade', 'uf', 'telefone', 'email'
+        'nome', 'documento', 'cep', 'endereco', 'bairro', 'cidade', 'uf', 'telefone', 'email', 'ativo'
     ];
 }

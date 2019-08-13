@@ -2,7 +2,8 @@
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     
-    Route::any('/torcedores/teste', 'Admin\TorcedorController@teste')->name('torcedores.teste');
+    Route::any('/torcedores/clientes-xml', 'Admin\TorcedorController@clientesXml')->name('torcedores.clientesXml');
+    Route::any('/torcedores/cadastra/clientes-xml/{email}', 'Admin\TorcedorController@cadastraClienteXml')->name('torcedores.cadastraClienteXml');
     Route::resource('torcedores', 'Admin\TorcedorController');
     Route::get('/', 'Admin\HomeController@index')->name('admin');
 

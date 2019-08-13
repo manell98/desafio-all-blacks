@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\Torcedores;
 use DB;
 
 class TorcedorController extends Controller
 {
 
-    private $user;
+    private $torcedores;
     protected $totalPage = 10;
     
-    public function __construct(User $user) {
+    public function __construct(Torcedores $torcedores) {
         
-        $this->user = $user;
+        $this->torcedores = $torcedores;
     }
 
     /**
@@ -25,10 +25,9 @@ class TorcedorController extends Controller
      */
     public function index()
     {
+        $torcedores = $this->torcedores->orderBy('nome', 'asc')->paginate($this->totalPage);
 
-        $users = $this->user->orderBy('name', 'asc')->paginate($this->totalPage);
-
-        return view('admin.torcedores.index', compact('users', 'array'));
+        return view('admin.torcedores.index', compact('torcedores'));
     }
 
     /**
@@ -38,7 +37,7 @@ class TorcedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.torcedores.create');
     }
 
     /**
@@ -49,7 +48,20 @@ class TorcedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();        
+              
+        $insert = $this->torcedores->create($data);
+
+        DB::table('torcedores')->where('id', $insert->id)->update(['ativo' => '1']);
+        
+        if( $insert )
+            return redirect()
+                        ->route('torcedores.index')
+                        ->with(['success' => 'Cadastro realizado com sucesso!']);
+        else
+            return redirect()->route('torcedores.create')
+                            ->withErrors(['errors' => 'Falha ao cadastrar!'])
+                            ->withInput();
     }
 
     /**
@@ -71,7 +83,9 @@ class TorcedorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $torcedor = $this->torcedores->find($id);
+
+        return view('admin.torcedores.edit', compact('torcedor'));
     }
 
     /**
@@ -97,11 +111,18 @@ class TorcedorController extends Controller
         //
     }
 
-    public function teste() {
-
+    public function clientesXml() 
+    {
         $xml = simplexml_load_file('../public/xml/clientes.xml');
 
-        return view('admin.torcedores.teste', compact('xml'));
+        return view('admin.torcedores.clientes-xml', compact('xml'));
 
+    }
+
+    public function cadastraClienteXml($email)
+    {
+        $xml = simplexml_load_file('../public/xml/clientes.xml');
+
+        return view('admin.torcedores.cadastra-cliente-xml', compact('xml', 'email'));
     }
 }
