@@ -2,10 +2,10 @@
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     
-    Route::any('/torcedores/clientes-xml', 'Admin\TorcedorController@clientesXml')->name('torcedores.clientesXml');
-    Route::any('/torcedores/cadastra/clientes-xml/{email}', 'Admin\TorcedorController@cadastraClienteXml')->name('torcedores.cadastraClienteXml');
-    Route::any('/torcedores/form-xml', 'Admin\TorcedorController@formXml')->name('torcedores.formXml');
-    Route::any('/torcedores/upload-xml', 'Admin\TorcedorController@uploadXml')->name('torcedores.uploadXml');
+    Route::any('/xml/clientes-xml', 'Admin\TorcedorController@clientesXml')->name('torcedores.clientesXml');
+    Route::any('/xml/cadastra/clientes-xml/{email}', 'Admin\TorcedorController@cadastraClienteXml')->name('torcedores.cadastraClienteXml');
+    Route::any('/xml/form-xml', 'Admin\TorcedorController@formXml')->name('torcedores.formXml');
+    Route::any('/xml/upload-xml', 'Admin\TorcedorController@uploadXml')->name('torcedores.uploadXml');
     Route::resource('torcedores', 'Admin\TorcedorController');
     Route::get('/', 'Admin\HomeController@index')->name('admin');
 

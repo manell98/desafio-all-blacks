@@ -61,8 +61,8 @@
                             @endif
                             </td>
                         </tr> 
-                        @include('admin.torcedores.modal-ativa')    
-                    @include('admin.torcedores.modal-desativa')       
+                    @include('admin.modal.modal-ativa')    
+                    @include('admin.modal.modal-desativa')       
                     @empty
                         <p>Nenhum Torcedor Cadastrado</p>
                     @endforelse

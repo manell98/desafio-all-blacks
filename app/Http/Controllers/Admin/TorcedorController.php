@@ -138,19 +138,19 @@ class TorcedorController extends Controller
     {
         $xml = simplexml_load_file('../storage/app/public/xml/clientes.xml');
 
-        return view('admin.torcedores.clientes-xml', compact('xml'));
+        return view('admin.xml.clientes-xml', compact('xml'));
     }
 
     public function cadastraClienteXml($email)
     {
         $xml = simplexml_load_file('../storage/app/public/xml/clientes.xml');
 
-        return view('admin.torcedores.cadastra-cliente-xml', compact('xml', 'email'));
+        return view('admin.xml.cadastra-cliente-xml', compact('xml', 'email'));
     }
 
     public function formXml() 
     {
-        return view('admin.torcedores.upload-xml');
+        return view('admin.xml.upload-xml');
     }
 
     public function uploadXml(Request $request) 

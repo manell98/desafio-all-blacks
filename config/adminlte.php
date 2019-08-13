@@ -115,13 +115,13 @@ return [
         ['header' => 'Torcedores'],
         [
             'text'          => 'Novo Torcedor',
-            'icon'          => 'fa fa-fw fa-user',
             'route'         => 'torcedores.create',
+            'icon'          => 'fas fa-user-plus',
         ],
         [
-            'text'          => 'Torcedores',
-            'icon'          => 'fa fa-fw fa-users',
+            'text'          => 'Torcedores',   
             'route'         => 'torcedores.index',
+            'icon'          => 'fa fa-fw fa-users',
         ],
         ['header' => 'XML'],
         [
