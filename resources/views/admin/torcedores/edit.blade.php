@@ -16,7 +16,7 @@
    
     {!! Form::model($torcedor, ['route' => ['torcedores.update', $torcedor->id], 'class' => 'form form-search form-ds', 'method' => 'PUT']) !!}
     
-    <h3> <i class="fa fa-user"></i> DADOS PESSOAIS </h3> 
+<h3> <i class="fa fa-user"></i> DADOS PESSOAIS </h3> 
 
 <div class="row">
     <div class="col-md-12">
@@ -29,19 +29,19 @@
                     <div class="col-md-12">
                         <div class="form-group form-group col-md-8">
                             <label>Nome:</label>
-                        <input type="text" name="nome" class="form-control" placeholder="Digite o nome:" value="{{$torcedor->nome}}">
+                        <input type="text" name="nome" class="form-control" placeholder="Digite o nome:" value="{{$torcedor->nome}}" required>
                         </div>
                         <div class="form-group form-group col-md-4">
                             <label>Documento:</label>
-                            <input type="text" name="documento" class="form-control" placeholder="Documento:" value="{{$torcedor->documento}}">
+                            <input type="text" name="documento" class="form-control" placeholder="Documento:" value="{{$torcedor->documento}}" required>
                         </div>
                         <div class="form-group form-group col-md-8">
                             <label>E-mail:</label>
-                            <input type="text" name="email" class="form-control" placeholder="E-mail:" value="{{$torcedor->email}}">
+                            <input type="text" name="email" class="form-control" placeholder="E-mail:" value="{{$torcedor->email}}" required>
                         </div>
                         <div class="form-group form-group col-md-4">
                             <label>Telefone:</label>
-                            <input type="text" name="telefone" class="form-control" placeholder="Telefone:" value="{{$torcedor->telefone}}">
+                            <input type="text" name="telefone" class="form-control" placeholder="Telefone:" value="{{$torcedor->telefone}}" required>
                         </div>
                     </div>
                 </div>
@@ -63,23 +63,23 @@
                         <div class="col-md-12">
                             <div class="form-group form-group col-md-4">
                                 <label>Cep:</label>
-                                <input type="text" name="cep" class="form-control" placeholder="Digite o cep:" value="{{$torcedor->cep}}">
+                                <input type="text" name="cep" class="form-control" placeholder="Digite o cep:" value="{{$torcedor->cep}}" required>
                             </div>
                             <div class="form-group form-group col-md-8">
                                 <label>Endereco:</label>
-                                <input type="text" name="endereco" class="form-control" placeholder="Digite o endereco:" value="{{$torcedor->endereco}}">
+                                <input type="text" name="endereco" class="form-control" placeholder="Digite o endereco:" value="{{$torcedor->endereco}}" required>
                             </div>
                             <div class="form-group form-group col-md-6">
                                 <label>Bairro:</label>
-                                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro:" value="{{$torcedor->bairro}}">
+                                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro:" value="{{$torcedor->bairro}}" required>
                             </div>
                             <div class="form-group form-group col-md-4">
                                 <label>Cidade:</label>
-                                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade:" value="{{$torcedor->cidade}}">
+                                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade:" value="{{$torcedor->cidade}}" required>
                             </div>
                             <div class="form-group form-group col-md-2">
                                 <label>Estado:</label>
-                                <input type="text" name="uf" class="form-control" placeholder="Digite o estado:" value="{{$torcedor->uf}}">
+                                <input type="text" name="uf" class="form-control" placeholder="Digite o estado:" value="{{$torcedor->uf}}" required>
                             </div>
                         </div>
                     </div>

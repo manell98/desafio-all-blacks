@@ -11,7 +11,7 @@ class TorcedorController extends Controller
 {
 
     private $torcedores;
-    protected $totalPage = 10;
+    protected $totalPage = 15;
     
     public function __construct(Torcedores $torcedores) {
         
@@ -95,9 +95,23 @@ class TorcedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) // update / ativar torcedor
     {
-        //
+        $torcedores = $this->torcedores->find($id);
+
+        $torcedores->update(['ativo' => '1']);
+
+        $data = $request->all();
+        
+        if ( $torcedores->update($data) )
+            return redirect()
+                        ->route('torcedores.index')
+                        ->with(['success' => 'Alteração realizada com sucesso!']);
+        else
+            return redirect()
+                        ->route('torcedores.edit', ['id' => $id])
+                        ->withErrors(['errors' => 'Falha ao editar'])
+                        ->withInput();
     }
 
     /**
@@ -106,9 +120,18 @@ class TorcedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // desativar torcedor
     {
-        //
+        $torcedores = $this->torcedores->find($id);
+
+        $desativa = $torcedores->update(['ativo' => '']);
+
+        if( $desativa ) {
+            return redirect()->route('torcedores.index')->with(['success' => 'Desativado com sucesso!']);
+        } else {
+            return redirect()->route('torcedores.index', ['id' => $id])
+                                        ->withErrors(['errors' => 'Falha ao desativar']);
+        }
     }
 
     public function clientesXml() 

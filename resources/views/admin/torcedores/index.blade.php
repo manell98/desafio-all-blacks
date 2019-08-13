@@ -32,7 +32,7 @@
                             <th style="text-align:center; color:#fff;">TELEFONE</th>
                             <th style="text-align:center; color:#fff;">E-MAIL</th>
                             <th style="text-align:center; color:#fff;">ATIVO</th>
-                            <th width="15" style="text-align:center; color:#fff;">AÇÃO</th>
+                            <th width="100" style="text-align:center; color:#fff;">AÇÕES</th>
                         </thead>
                     </tr>
 
@@ -48,14 +48,21 @@
                             <th style="text-align:center">{{$torcedor->telefone}}</th>
                             <th style="text-align:center">{{$torcedor->email}}</th>
                             @if ($torcedor->ativo == 1)
-                            <th style="text-align:center"><i class="fas fa-check"></i></th>
+                                <th style="text-align:center"><i class="fas fa-check"></i></th>
                             @else
-                            <th style="text-align:center"></th>
+                                <th style="text-align:center"></th>
                             @endif
                             <td style="text-align:center;">
                                 <a href="{{route('torcedores.edit', $torcedor->id)}}"><span class="btn btn-primary" title="Editar"><i class="glyphicon glyphicon-edit"></i></span></a>
+                            @if($torcedor->ativo == 1)
+                                <a href="" data-target="#modal-desativa-{{$torcedor->id}}" data-toggle="modal"><span class="btn btn-danger" title="Desativar"><i class="glyphicon glyphicon-trash"></i></span></a>
+                            @else
+                                <a href="" data-target="#modal-ativa-{{$torcedor->id}}" data-toggle="modal"><span class="btn btn-success" title="Ativar"><i class="fas fa-check"></i></span></a>
+                            @endif
                             </td>
-                        </tr>    
+                        </tr> 
+                        @include('admin.torcedores.modal-ativa')    
+                    @include('admin.torcedores.modal-desativa')       
                     @empty
                         <p>Nenhum Torcedor Cadastrado</p>
                     @endforelse
@@ -63,6 +70,12 @@
             </div>
         </div>
     </div>
-</div>  
+</div> 
+
+@if( isset($data) )
+    {!! $torcedores->appends($data)->links() !!}
+@else
+    {!! $torcedores->links() !!}
+@endif
 
 @stop

@@ -48,9 +48,9 @@
                             <th style="text-align:center">{{$torcedor->attributes()['telefone']}}</th>
                             <th style="text-align:center">{{$torcedor->attributes()['email']}}</th>
                             @if ($torcedor->attributes()['ativo'] == 1)
-                            <th style="text-align:center"><i class="fas fa-check"></i></th>
+                                <th style="text-align:center"><i class="fas fa-check"></i></th>
                             @else
-                            <th style="text-align:center"></th>
+                                <th style="text-align:center"></th>
                             @endif
                             <td style="text-align:center;">
                                 <a href="{{route('torcedores.cadastraClienteXml', $torcedor->attributes()['email'])}}"><span class="btn btn-primary" title="Cadastrar"><i class="fas fa-plus"></i></span></a>
