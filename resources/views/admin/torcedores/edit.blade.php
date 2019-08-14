@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group form-group col-md-4">
                             <label>Documento:</label>
-                            <input type="text" name="documento" class="form-control" placeholder="Documento:" value="{{$torcedor->documento}}" required>
+                            <input type="text" name="documento" class="form-control mascara-cpfcnpj" placeholder="Documento:" value="{{$torcedor->documento}}" required>
                         </div>
                         <div class="form-group form-group col-md-8">
                             <label>E-mail:</label>

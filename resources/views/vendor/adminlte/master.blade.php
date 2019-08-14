@@ -46,6 +46,8 @@
 <script src="{{ asset('js/cep.js') }}"></script>
 <script src="{{ asset('js/mascara-cep.js') }}"></script>
 <script src="{{ asset('js/mascara-telefone.js') }}"></script>
+<script src="{{ asset('js/jquery.mask.js') }}"></script>
+<script src="{{ asset('js/mascara-cpf-cnpj.min.js') }}"></script>
 
 @include('adminlte::plugins', ['type' => 'js'])
 
