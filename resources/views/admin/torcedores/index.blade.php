@@ -4,11 +4,11 @@
 
 <h3 class="text-center">Lista de Torcedores</h3>
 
-<div class="class-btn-insert"> </br>
-    <a class="btn icon-btn btn-primary" href="{{route('torcedores.create')}}">
-        <i class="glyphicon btn-glyphicon glyphicon-plus text-primary" style="color: #fff"></i> NOVO
-    </a>
-</div>
+{!! Form::open(['route' => 'torcedores.excel', 'class' => 'form form-inline']) !!}
+    <button type="submit" class="btn btn-success">
+        <i class="fa fa-file-excel" aria-hidden="true"></i> &nbsp Exportar
+    </button>       
+{!! Form::close() !!}
   
 <div class="span7">   
     <div class="widget stacked widget-table action-table">

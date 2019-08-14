@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Torcedores;
+use App\Exports\TorcedoresExport;
+use Maatwebsite\Excel\Facades\Excel;
 use DB;
 
 class TorcedorController extends Controller
@@ -168,6 +170,10 @@ class TorcedorController extends Controller
                             ->withErrors(['errors' => 'Erro no Upload'])
                             ->withInput();
         }
+    }
 
+    public function export() 
+    {
+        return Excel::download(new TorcedoresExport, 'clientes.xlsx');
     }
 }
