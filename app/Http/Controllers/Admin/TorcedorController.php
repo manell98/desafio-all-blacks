@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Torcedores;
 use App\Exports\TorcedoresExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Mail;
 use DB;
 
 class TorcedorController extends Controller
@@ -136,44 +137,30 @@ class TorcedorController extends Controller
         }
     }
 
-    public function clientesXml() 
-    {
-        $xml = simplexml_load_file('../storage/app/public/xml/clientes.xml');
-
-        return view('admin.xml.clientes-xml', compact('xml'));
-    }
-
-    public function cadastraClienteXml($email)
-    {
-        $xml = simplexml_load_file('../storage/app/public/xml/clientes.xml');
-
-        return view('admin.xml.cadastra-cliente-xml', compact('xml', 'email'));
-    }
-
-    public function formXml() 
-    {
-        return view('admin.xml.upload-xml');
-    }
-
-    public function uploadXml(Request $request) 
-    {
-        if( $request->hasFile('xml') ) {
- 
-            $file = $request->file('xml');
-
-            $upload = $file->storeAs('xml', 'clientes.xml');
-            
-            if( $upload ) 
-                return redirect()->route('torcedores.clientesXml')->with(['success' => 'Arquivo XML salvo com sucesso!']);
-            else
-                return redirect()->route('torcedores.clientesXml')
-                            ->withErrors(['errors' => 'Erro no Upload'])
-                            ->withInput();
-        }
-    }
-
     public function export() 
     {
         return Excel::download(new TorcedoresExport, 'clientes.xlsx');
+    }
+
+    public function formMail() 
+    {
+        $torcedores = $this->torcedores->where('ativo', '1')->orderBy('nome', 'asc')->get();
+
+        return view('admin.torcedores.form-mail', compact('torcedores'));
+    }
+
+    public function enviaEmail(Request $request)
+    {
+        $email = $request->email;
+        $assunto = $request->assunto;
+        $mensagem = $request->mensagem;
+
+        Mail::send('admin.torcedores.mensagem-mail', ['mensagem' => $mensagem], function ($message) use ($email, $assunto) {
+            $message->from('dfmanu06@gmail.com', 'Emanuell Santos');
+            $message->subject($assunto);
+            $message->to($email);
+        });
+        
+        return redirect()->route('torcedores.email')->with(['success' => 'E-mail enviado com sucesso!']);
     }
 }

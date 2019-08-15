@@ -15,6 +15,8 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
+
     @include('adminlte::plugins', ['type' => 'css'])
 
     @if(config('adminlte.pace.active'))
@@ -48,6 +50,7 @@
 <script src="{{ asset('js/mascara-telefone.js') }}"></script>
 <script src="{{ asset('js/jquery.mask.js') }}"></script>
 <script src="{{ asset('js/mascara-cpf-cnpj.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
 
 @include('adminlte::plugins', ['type' => 'js'])
 

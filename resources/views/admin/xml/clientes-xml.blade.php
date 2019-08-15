@@ -3,23 +3,17 @@
 @section('content')
 
 <h3 class="text-center">Lista XML de Torcedores - {{ $xml->torcedor->count() }} registros</h3>
-
-<div class="class-btn-insert"> </br>
-    <a class="btn icon-btn btn-primary" href="{{route('torcedores.formXml')}}">
-        <i class="glyphicon btn-glyphicon glyphicon-plus text-primary"></i> NOVO
-    </a>
-</div>
     
 <div class="span7">   
     <div class="widget stacked widget-table action-table">
         <div class="widget-content">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
-                @if( Session::has('success') )
-                <div class="alert alert-success hide-msg" style="float: left; width: 100%; margin: 10px 0px;">
-                    {{Session::get('success')}}
-                </div>
-                @endif
+                    @if( Session::has('success') )
+                        <div class="alert alert-success hide-msg" style="float: left; width: 100%; margin: 10px 0px;">
+                            {{Session::get('success')}}
+                        </div>
+                    @endif
                     <tr>
                         <thead style="background-color:#3c8dbc">
                         <th style="text-align:center; color:#fff;">NOME</th>

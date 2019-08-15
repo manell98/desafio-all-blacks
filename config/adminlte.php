@@ -123,6 +123,11 @@ return [
             'route'         => 'torcedores.index',
             'icon'          => 'fa fa-fw fa-users',
         ],
+        [
+            'text'          => 'Enviar email',   
+            'route'         => 'torcedores.email',
+            'icon'          => 'glyphicon glyphicon-envelope',
+        ],
         ['header' => 'XML'],
         [
             'text'   => 'Lista XML',

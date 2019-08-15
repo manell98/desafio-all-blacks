@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-    <p>You are logged in!</p>
+    
+<h3 class="text-center">Bem vindo(a) ao sistema de controle de torcedores dos All Blacks!</h3>
+
 @stop
