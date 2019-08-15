@@ -1,6 +1,6 @@
 ## Bem vindo(a) ao sistema de controle de torcedores dos All Blacks!
 
-Esse projeto é um sistema de controle de torcedores dos AllBlacks, sendo possível ao administrador do sistema gerar uma planilha Excel e enviar e-mails a todos os torcedores ativos no banco de dados. É possível também fazer upload de arquivos XML que já possuem dados de clientes a fim de popular a base de dados.
+Esse projeto é um sistema de controle de torcedores dos AllBlacks, sendo possível ao administrador do sistema gerar uma planilha Excel e enviar e-mails a todos os torcedores cadastrados no banco de dados. É possível também fazer upload de arquivos XML que já possuem dados de clientes a fim de popular a base de dados.
 
 
 ## Como rodar o projeto
