@@ -34,6 +34,7 @@ Esse projeto é um sistema de controle de torcedores dos AllBlacks, sendo possí
 
 ### Configuração para enviar email
   Configure corretamente seu endereço de e-mail(no teste do projeto foi usado o gmail) e senha no arquivo `.env` do projeto
+  * [Clique aqui](https://myaccount.google.com/lesssecureapps?pli=1) e ative a opção para permitir que sua conta possa enviar e-mails através da aplicação
  
  
 ### Acesse o sistema

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3 class="text-center">Enviar e-mail aos torcedores ativos</h3>
+<h3 class="text-center">Enviar comunicado aos torcedores</h3>
 
 @if( Session::has('success') )
     <div class="alert alert-success hide-msg" style="float: left; width: 100%; margin: 10px 0px;">
