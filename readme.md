@@ -31,6 +31,9 @@ Esse projeto é um sistema de controle de torcedores dos AllBlacks, sendo possí
 
 ### Configure username e password do banco de dados
   Configure corretamente o username e o password do seu banco de dados no arquivo `.env` do projeto
+
+### Configuração para enviar email
+  Configure corretamente seu endereço de e-mail(no teste do projeto foi usado o gmail) e senha no arquivo `.env` do projeto
  
  
 ### Acesse o sistema
