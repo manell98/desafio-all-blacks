@@ -9,6 +9,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::any('/xml/upload-xml', 'Admin\XmlController@uploadXml')->name('torcedores.uploadXml');
     
     // Rotas TorcedorController 
+    Route::any('/torcedores/ativa-torcedor/{id}', 'Admin\TorcedorController@ativaTorcedor')->name('torcedores.ativaTorcedor');
     Route::any('/torcedores/excel', 'Admin\TorcedorController@export')->name('torcedores.excel');
     Route::any('/torcedores/email', 'Admin\TorcedorController@formMail')->name('torcedores.email');
     Route::any('/torcedores/email/envia', 'Admin\TorcedorController@enviaEmail')->name('torcedores.envia');

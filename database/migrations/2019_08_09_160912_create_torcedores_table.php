@@ -24,7 +24,7 @@ class CreateTorcedoresTable extends Migration
             $table->string('uf', 2);
             $table->string('telefone', 45);
             $table->string('email')->unique();
-            $table->enum('ativo',['1', ''])->default('1');
+            $table->enum('ativo',['Sim', 'Não'])->default('Sim');
         });
     }
 

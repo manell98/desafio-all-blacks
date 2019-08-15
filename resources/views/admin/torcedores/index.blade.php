@@ -47,14 +47,14 @@
                             <th style="text-align:center">{{$torcedor->uf}}</th>
                             <th style="text-align:center">{{$torcedor->telefone}}</th>
                             <th style="text-align:center">{{$torcedor->email}}</th>
-                            @if ($torcedor->ativo == 1)
+                            @if ($torcedor->ativo == 'Sim')
                                 <th style="text-align:center"><i class="fas fa-check"></i></th>
                             @else
                                 <th style="text-align:center"></th>
                             @endif
                             <td style="text-align:center;">
                                 <a href="{{route('torcedores.edit', $torcedor->id)}}"><span class="btn btn-primary" title="Editar"><i class="glyphicon glyphicon-edit"></i></span></a>
-                            @if($torcedor->ativo == 1)
+                            @if($torcedor->ativo == 'Sim')
                                 <a href="" data-target="#modal-desativa-{{$torcedor->id}}" data-toggle="modal"><span class="btn btn-danger" title="Desativar"><i class="glyphicon glyphicon-trash"></i></span></a>
                             @else
                                 <a href="" data-target="#modal-ativa-{{$torcedor->id}}" data-toggle="modal"><span class="btn btn-success" title="Ativar"><i class="fas fa-check"></i></span></a>

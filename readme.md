@@ -1,72 +1,47 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## Bem vindo(a) ao sistema de controle de torcedores dos All Blacks!
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Esse projeto é um sistema de controle de torcedores dos AllBlacks, sendo possível ao administrador do sistema gerar uma planilha Excel e enviar e-mails a todos os torcedores ativos no banco de dados. É possível também fazer upload de arquivos XML que já possuem dados de clientes a fim de popular a base de dados.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Como rodar o projeto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Prepare o ambiente de desenvolvimento
+* É necessário ter instalado na sua máquina um ambiente de desenvolvimento PHP (APACHE + MYSQL + PHP). Existem inúmeras opções na web, sugiro o [XAMPP](https://www.apachefriends.org/pt_br/download.html), que foi usado na criação dessa projeto.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Uma vez instalado, clone o projeto para o diretório raiz do servidor (htdocs, por exemplo):
+   
+   `$ git clone https://github.com/manell98/desafio-all-blacks.git`
+   
+   `$ cd desafio-all-blacks`
 
-## Learning Laravel
+### Instale as dependências com o composer
+   
+   `$ composer install`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+   [Clique aqui](https://getcomposer.org/download/) caso não tenha o composer instalado na sua máquina
+ 
+### Importe o Banco de Dados
+ * No caso do Xampp, acesse o [PhpMyAdmin](http://localhost/phpmyadmin/) para realizar a importação do banco
+ * Vá até a guia Base Dados e crie um banco de dados chamado: dbdesafio_all_blacks com a seguinte Collaction: utf8mb4_unicode_ci 
+  * Depois disso, selecione o bd que acabou de criar e vá até a guia Importar
+  * Clique em Escolher arquivo
+  * Selecione o arquivo localizado em '/desafio-all-blacks/banco-de-dados-curriculo/dbdesafio_all_blacks.sql'
+  * Em seguida clique em Executar
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1400 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+### Configure username e password do banco de dados
+  Configure corretamente o username e o password do seu banco de dados no arquivo `.env` do projeto
+ 
+ 
+### Acesse o sistema
+ * Para acessar o sistema: `http://localhost/desafio-all-blacks/public/admin`
+    * login: admin@admin.com
+    * senha: admin
+  
+  * Obs.: a porta de acesso `:80` pode mudar de acordo com as configurações do seu servidor
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Solução do problema
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p> Como a funcionária que era dedicada exclusivamente para realizar as operações de controle dos torcedores foi demitida e a secretária que realizará essas funções agora não pode perder tempo, a solução elaborada foi pensada para agilizar o máximo possível, o usuário acessa o sistema e poderá realizar o upload do arquivo XML enviado pela loja virtual da seleção na internet, em seguida ele é redirecionado para uma página que lista todos os registros desse arquivo em uma tabela HTML que por sua vez contém um botão para adicionar os clientes "recuperados" do arquivo XML no banco de dados do sistema, sendo possível também adicionar o e-mail/telefone ou qualquer outro campo que pode eventualmente não ter sido disponibilizado pela loja virtual. </p>
+<p> Depois de adicionado, o usuário é redirecionado para uma página que lista todos os torcedore/clientes cadastrados no sistema, nessa página são disponilizados 3 botões, um para exportar todos os registros para uma tabela Excel, um para editar algum registro, e o último que pode ativar ou desativar um determinado torcedor no banco de dados. </p>
+<p> Para completar a solução, existem mais duas opções para o usuário, um botão em que ele pode fazer o cadastro de algum torcedor/cliente que não foi enviado pela loja virtual e outro onde ele pode enviar e-mails/comunicados para todos os torcedores cadastrados no sistema. </p>

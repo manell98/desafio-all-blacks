@@ -25,14 +25,14 @@ class TorcedoresExport implements FromQuery, WithMapping, WithHeadings, WithEven
 
         return [
             AfterSheet::class => function(AfterSheet $event) use ($styleArray) {
-                $event->sheet->getStyle('A1:I1')->applyFromArray($styleArray);
+                $event->sheet->getStyle('A1:J1')->applyFromArray($styleArray);
             },
         ];    
     }
 
     public function query()
     {
-        return DB::table('torcedores')->where('ativo', '1')->orderBy('nome', 'asc');
+        return DB::table('torcedores')->orderBy('nome', 'asc');
     }
 
     public function map($torcedores): array
@@ -47,6 +47,7 @@ class TorcedoresExport implements FromQuery, WithMapping, WithHeadings, WithEven
             $torcedores->uf,
             $torcedores->telefone,
             $torcedores->email,
+            $torcedores->ativo,
         ];
     }
     
@@ -62,6 +63,7 @@ class TorcedoresExport implements FromQuery, WithMapping, WithHeadings, WithEven
             'Estado',
             'Telefone',
             'E-mail',
+            'Ativo',
         ];
     }
 }

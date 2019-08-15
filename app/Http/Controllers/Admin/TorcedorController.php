@@ -56,7 +56,7 @@ class TorcedorController extends Controller
               
         $insert = $this->torcedores->create($data);
 
-        DB::table('torcedores')->where('id', $insert->id)->update(['ativo' => '1']);
+        DB::table('torcedores')->where('id', $insert->id)->update(['ativo' => 'Sim']);
         
         if( $insert )
             return redirect()
@@ -99,11 +99,9 @@ class TorcedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TorcedorFormRequest $request, $id) // update / ativar torcedor
+    public function update(TorcedorFormRequest $request, $id)
     {
         $torcedores = $this->torcedores->find($id);
-
-        $torcedores->update(['ativo' => '1']);
 
         $data = $request->all();
         
@@ -128,13 +126,27 @@ class TorcedorController extends Controller
     {
         $torcedores = $this->torcedores->find($id);
 
-        $desativa = $torcedores->update(['ativo' => '']);
+        $desativa = $torcedores->update(['ativo' => 'Não']);
 
         if( $desativa ) {
             return redirect()->route('torcedores.index')->with(['success' => 'Desativado com sucesso!']);
         } else {
             return redirect()->route('torcedores.index', ['id' => $id])
                                         ->withErrors(['errors' => 'Falha ao desativar']);
+        }
+    }
+
+    public function ativaTorcedor(TorcedorFormRequest $request, $id) // ativar torcedor
+    {
+        $torcedores = $this->torcedores->find($id);
+
+        $ativa = $torcedores->update(['ativo' => 'Sim']);
+        
+        if( $ativa ) {
+            return redirect()->route('torcedores.index')->with(['success' => 'Ativado com sucesso!']);
+        } else {
+            return redirect()->route('torcedores.index', ['id' => $id])
+                                        ->withErrors(['errors' => 'Falha ao ativar']);
         }
     }
 
@@ -145,7 +157,7 @@ class TorcedorController extends Controller
 
     public function formMail() 
     {
-        $torcedores = $this->torcedores->where('ativo', '1')->orderBy('nome', 'asc')->get();
+        $torcedores = $this->torcedores->orderBy('nome', 'asc')->get();
 
         return view('admin.torcedores.form-mail', compact('torcedores'));
     }

@@ -1,7 +1,7 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
 role="dialog" tabindex="-1" id="modal-ativa-{{$torcedor->id}}">
 
-	{!! Form::open(['route' => ['torcedores.update', $torcedor->id], 'class' => 'form form-search form-ds', 'method' => 'PUT']) !!}
+	{!! Form::open(['route' => ['torcedores.ativaTorcedor', $torcedor->id], 'class' => 'form form-search form-ds', 'method' => 'PUT']) !!}
 		
 		<div class="modal-dialog">
 			<div class="modal-content">
