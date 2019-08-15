@@ -8,6 +8,7 @@ use App\Models\Torcedores;
 use App\Exports\TorcedoresExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\Admin\TorcedorFormRequest;
 use DB;
 
 class TorcedorController extends Controller
@@ -49,7 +50,7 @@ class TorcedorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TorcedorFormRequest $request)
     {
         $data = $request->all();        
               
@@ -98,7 +99,7 @@ class TorcedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) // update / ativar torcedor
+    public function update(TorcedorFormRequest $request, $id) // update / ativar torcedor
     {
         $torcedores = $this->torcedores->find($id);
 

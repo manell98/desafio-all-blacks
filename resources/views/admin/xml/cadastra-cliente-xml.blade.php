@@ -5,19 +5,19 @@
 {!! Form::open(['route' => 'torcedores.store', 'class' => 'form form-search form-ds']) !!}
 
 @foreach($xml->torcedor as $torcedor)
-    @if($torcedor->attributes()['email'] == $email)
+    @if($torcedor->attributes()['documento'] == $documento)
 
-    <h3 class="text-center">Cadastrar Torcedor: <b>{{$torcedor->attributes()['nome']}}</b></h3>
+<h3 class="text-center">Cadastrar Torcedor: <b>{{$torcedor->attributes()['nome']}}</b></h3>
 
-    <div class="content-din">
+<div class="content-din">
         
-        @if( isset($errors) && count($errors) > 0 )
-        <div class="alert alert-warning">
-            @foreach($errors->all() as $error)
-                <p>{{$error}}</p>
-            @endforeach
-        </div>
-        @endif
+    @if( isset($errors) && count($errors) > 0 )
+    <div class="alert alert-warning">
+        @foreach($errors->all() as $error)
+            <p>{{$error}}</p>
+        @endforeach
+    </div>
+    @endif
         
 <h3> <i class="fa fa-user"></i> DADOS PESSOAIS </h3> 
 

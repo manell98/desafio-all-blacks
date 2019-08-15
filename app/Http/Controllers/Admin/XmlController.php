@@ -14,11 +14,11 @@ class XmlController extends Controller
         return view('admin.xml.clientes-xml', compact('xml'));
     }
 
-    public function cadastraClienteXml($email)
+    public function cadastraClienteXml($documento)
     {
         $xml = simplexml_load_file('../storage/app/public/xml/clientes.xml');
 
-        return view('admin.xml.cadastra-cliente-xml', compact('xml', 'email'));
+        return view('admin.xml.cadastra-cliente-xml', compact('xml', 'documento'));
     }
 
     public function formXml() 

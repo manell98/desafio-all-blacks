@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
-
+    <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
 
     @include('adminlte::plugins', ['type' => 'css'])
@@ -45,11 +45,16 @@
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
+<!-- JS Personalizados -->
 <script src="{{ asset('js/cep.js') }}"></script>
 <script src="{{ asset('js/mascara-cep.js') }}"></script>
 <script src="{{ asset('js/mascara-telefone.js') }}"></script>
 <script src="{{ asset('js/jquery.mask.js') }}"></script>
 <script src="{{ asset('js/mascara-cpf-cnpj.min.js') }}"></script>
+<script src="{{ asset('js/tempo-msg.js') }}"></script>
+<!-- Fim JS Personalizados -->
+
+<!-- Bootstrap Select JS -->
 <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
 
 @include('adminlte::plugins', ['type' => 'js'])

@@ -47,7 +47,7 @@
                                 <th style="text-align:center"></th>
                             @endif
                             <td style="text-align:center;">
-                                <a href="{{route('torcedores.cadastraClienteXml', $torcedor->attributes()['email'])}}"><span class="btn btn-primary" title="Cadastrar"><i class="fas fa-plus"></i></span></a>
+                                <a href="{{route('torcedores.cadastraClienteXml', $torcedor->attributes()['documento'])}}"><span class="btn btn-primary" title="Cadastrar"><i class="fas fa-plus"></i></span></a>
                             </td>
                         </tr>    
                     @empty
